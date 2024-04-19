@@ -7,6 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class UzcarrdApplication {
     public static void main(String[] args) {
         SpringApplication.run(UzcarrdApplication.class, args);
-        //HTGGJG
+
     }
 }
