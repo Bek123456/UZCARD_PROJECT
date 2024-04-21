@@ -12,8 +12,8 @@ import java.util.UUID;
 @Getter
 public class TransferEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;;
 //    id (uuid), from_card_id, to_card_id, total_amount(5600),amount(5500),service_amount(100),
 //    service_percentage(1%),created_date, status(SUCCESS,FAILED,CANCELED), company_id
 
@@ -22,13 +22,13 @@ public class TransferEntity {
     @JoinColumn(name = "from_card_id", insertable = false, updatable = false)
     private CardEntity fromCardEntity;
     @Column(name = "from_card_id")
-    private UUID fromCardId;
+    private Integer fromCardId;
 
     @ManyToOne
     @JoinColumn(name = "to_card_id", insertable = false, updatable = false)
     private CardEntity toCardEntity;
     @Column(name = "to_card_id")
-    private UUID toCardId;
+    private Integer toCardId;
 
     @Column(name = "total_amount")
     private double totalAmount;
@@ -43,7 +43,7 @@ public class TransferEntity {
      @JoinColumn(name = "client_id", insertable = false, updatable = false)
      private ClientEntity clientEntity;
      @Column(name = "company_id")
-     private UUID companyId;
+     private Integer companyId;
 
 
 

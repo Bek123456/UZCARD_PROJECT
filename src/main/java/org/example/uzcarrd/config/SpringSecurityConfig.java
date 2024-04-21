@@ -25,6 +25,7 @@ public class SpringSecurityConfig {
 
     public static final String[]AUTH_WHITELIST={
             "/api/auth/*",
+            "/profile/created1"
 //            "/api/auth/verification/email/*",
 //            "/attach/upload",
 //            "/attach/openById/*",

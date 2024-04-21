@@ -13,9 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/profile")
 public class ProfileController {
      @Autowired
-    private ProfileService profileService;
+     private ProfileService profileService;
      @PostMapping("/created1")
-    public ResponseEntity<String>created1(@RequestBody ProfileDTO dto){
-
+     public ResponseEntity<String>created1(@RequestBody ProfileDTO dto){
+        return ResponseEntity.ok(profileService.created1(dto));
      }
+
 }

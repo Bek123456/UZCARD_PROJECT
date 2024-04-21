@@ -16,13 +16,13 @@ import java.util.UUID;
 @Getter
 @Setter
 public class CustomUserDetails implements UserDetails {
-    private UUID id;
+    private Integer id;
     private String email;
     private String password;
     private ProfileStatus status;
     private ProfileRole role;
 
-    public CustomUserDetails(UUID id, String phone, String password, ProfileStatus status, ProfileRole role) {
+    public CustomUserDetails(Integer id, String phone, String password, ProfileStatus status, ProfileRole role) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -69,7 +69,7 @@ public class CustomUserDetails implements UserDetails {
         return status.equals(ProfileStatus.ACTIVE);
     }
 
-    public UUID getId() {
+    public Integer getId() {
         return id;
     }
 }

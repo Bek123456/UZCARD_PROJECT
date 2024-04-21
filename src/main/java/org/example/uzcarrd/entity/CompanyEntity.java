@@ -14,8 +14,8 @@ import java.util.UUID;
 @Table(name = "company_entity")
 public class CompanyEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Column(name = "name")
     private String name;
@@ -24,7 +24,7 @@ public class CompanyEntity {
     @Column(name = "contact")
     private String contact;
     @Column(name = "created_date")
-    private LocalDateTime createdDate;
+    private LocalDateTime createdDate=LocalDateTime.now();
     @Column(name = "visible")
     private Boolean visible;
     @Column(name = "role")

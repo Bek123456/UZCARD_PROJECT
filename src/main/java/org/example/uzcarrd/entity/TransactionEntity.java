@@ -14,8 +14,8 @@ import java.util.UUID;
 @Table(name = "transaction_entity")
 public class TransactionEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
 //    id(uuid), card_id,amount,transaction_type (CREDIT,DEBIT), transfer_id, created_date,
 //    status(CREATED,SUCCESS,FAILED,CANCELED,)
@@ -24,7 +24,7 @@ public class TransactionEntity {
     private CardEntity cardEntity;
 
     @Column(name = "card_id")
-    private UUID cardId;
+    private Integer cardId;
 
     @Column(name = "amount")
     private double amount;
@@ -38,7 +38,7 @@ public class TransactionEntity {
     private TransferEntity transferEntity;
 
     @Column(name = "transfer_id")
-    private UUID transferId;
+    private Integer transferId;
 
     @Column(name = "status")
     @Enumerated(EnumType.STRING)

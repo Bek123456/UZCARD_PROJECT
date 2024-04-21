@@ -17,8 +17,8 @@ import java.util.UUID;
 @Getter
 public class ProfileEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 //    id(uuid),name,surname,created_date,status,role(ADMIN,MODERATOR), username,password
 
     @Column(name = "name")
@@ -28,7 +28,7 @@ public class ProfileEntity {
     private String surname;
 
     @Column(name = "created_date")
-    private LocalDateTime createdDate;
+    private LocalDateTime createdDate=LocalDateTime.now();
 
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
