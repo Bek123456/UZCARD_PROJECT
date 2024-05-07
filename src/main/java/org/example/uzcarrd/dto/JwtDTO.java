@@ -8,7 +8,7 @@ import org.example.uzcarrd.enums.ProfileRole;
 
 public class JwtDTO {
     private Integer id;
-    private String email;
+    private String username;
     private ProfileRole role;
 
     public JwtDTO(Integer id) {
@@ -20,20 +20,20 @@ public class JwtDTO {
         this.role = role;
     }
 
-    public JwtDTO(String email, ProfileRole role) {
-        this.email = email;
+    public JwtDTO(String username, ProfileRole role) {
+        this.username = username;
         this.role = role;
     }
 
 
-    public JwtDTO(ProfileRole role, String email) {
+    public JwtDTO(ProfileRole role, String username) {
         this.role = role;
-        this.email = email;
+        this.username = username;
     }
 
-    public JwtDTO(Integer id, String email, ProfileRole role) {
+    public JwtDTO(Integer id, String username, ProfileRole role) {
         this.id = id;
-        this.email = email;
+        this.username = username;
         this.role = role;
     }
 }

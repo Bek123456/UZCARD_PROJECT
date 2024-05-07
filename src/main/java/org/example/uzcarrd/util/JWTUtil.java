@@ -2,6 +2,7 @@ package org.example.uzcarrd.util;
 
 import io.jsonwebtoken.*;
 import org.example.uzcarrd.dto.JwtDTO;
+import org.example.uzcarrd.enums.CompanyRole;
 import org.example.uzcarrd.enums.ProfileRole;
 
 import javax.crypto.spec.SecretKeySpec;
@@ -72,12 +73,12 @@ public class JWTUtil {
         Jws<Claims> jws = jwtParser.parseSignedClaims(token);
         Claims claims = jws.getPayload();
 
-        String email = (String) claims.get("email");
+        String email = (String) claims.get("username");
         String role = (String) claims.get("role");
         ProfileRole profileRole = ProfileRole.valueOf(role);
         return new JwtDTO(profileRole, email);
     }
-    public static String encode(String email, ProfileRole role) {
+    public static String encode(String username, ProfileRole role) {
         JwtBuilder jwtBuilder = Jwts.builder();
         jwtBuilder.issuedAt(new Date());
 
@@ -86,14 +87,14 @@ public class JWTUtil {
 
         jwtBuilder.signWith(secretKeySpec);
 
-        jwtBuilder.claim("email", email);
+        jwtBuilder.claim("username", username);
         jwtBuilder.claim("role", role);
 
         jwtBuilder.expiration(new Date(System.currentTimeMillis() + (tokenLiveTime)));
-        jwtBuilder.issuer("KunUzTest");
+        jwtBuilder.issuer("UzCard");
         return jwtBuilder.compact();
     }
-    public static String encodeForSpringSecurity2(String email, ProfileRole role,Integer id) {
+    public static String encodeForSpringSecurity2(String username, ProfileRole role,Integer id) {
         JwtBuilder jwtBuilder = Jwts.builder();
         jwtBuilder.issuedAt(new Date());
 
@@ -102,7 +103,7 @@ public class JWTUtil {
 
         jwtBuilder.signWith(secretKeySpec);
 
-        jwtBuilder.claim("email", email);
+        jwtBuilder.claim("username", username);
         jwtBuilder.claim("role", role);
         jwtBuilder.claim("id",id);
 
@@ -121,9 +122,29 @@ public class JWTUtil {
         Claims claims = jws.getPayload();
 
         Integer id =  (Integer) claims.get("id");
-        String email = (String) claims.get("email");
+        String username = (String) claims.get("username");
         String role = (String) claims.get("role");
         ProfileRole profileRole = ProfileRole.valueOf(role);
-        return new JwtDTO(id,email, profileRole);
+        return new JwtDTO(id,username, profileRole);
     }
+
+    //////////
+
+    public static String encodeCompany(String username, CompanyRole role) {
+        JwtBuilder jwtBuilder = Jwts.builder();
+        jwtBuilder.issuedAt(new Date());
+
+        SignatureAlgorithm sa = SignatureAlgorithm.HS512;
+        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(), sa.getJcaName());
+
+        jwtBuilder.signWith(secretKeySpec);
+
+        jwtBuilder.claim("username", username);
+        jwtBuilder.claim("role", role);
+
+        jwtBuilder.expiration(new Date(System.currentTimeMillis() + (tokenLiveTime)));
+        jwtBuilder.issuer("UzCard");
+        return jwtBuilder.compact();
+    }
+
 }

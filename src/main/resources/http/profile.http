@@ -1,0 +1,12 @@
+POST http://localhost:8080/profile/created1
+Content-Type: application/json
+
+{
+  "name": "ozod",
+  "surname": "ozod",
+  "username": "ozod",
+  "phone": "1111",
+  "password": "1111",
+  "role": "ADMIN",
+  "status": "ACTIVE"
+}

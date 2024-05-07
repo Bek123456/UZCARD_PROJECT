@@ -3,6 +3,7 @@ package org.example.uzcarrd.service;
 import org.example.uzcarrd.dto.ProfileDTO;
 import org.example.uzcarrd.entity.ProfileEntity;
 import org.example.uzcarrd.repository.ProfileRepository;
+import org.example.uzcarrd.util.MDUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,7 @@ private ProfileRepository profileRepository;
         entity.setName(dto.getName());
         entity.setRole(dto.getRole());
         entity.setPhone(dto.getPhone());
-        entity.setPassword(dto.getPassword());
+        entity.setPassword(MDUtil.encode(dto.getPassword()));
         entity.setSurname(dto.getSurname());
         entity.setStatus(dto.getStatus());
         entity.setUsername(dto.getUsername());

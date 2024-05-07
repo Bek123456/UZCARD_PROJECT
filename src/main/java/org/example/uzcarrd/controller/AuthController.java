@@ -3,6 +3,7 @@ package org.example.uzcarrd.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;
 import org.example.uzcarrd.dto.AuthDTO;
+import org.example.uzcarrd.dto.CompanyDTO;
 import org.example.uzcarrd.dto.ProfileDTO;
 import org.example.uzcarrd.enums.AppLanguage;
 import org.example.uzcarrd.service.AuthService;
@@ -28,16 +29,17 @@ public class AuthController {
             defaultValue = "uz") AppLanguage language, @RequestBody AuthDTO auth){
         log.trace("Login In Trace");
         log.debug("Login In Debug");
-//        log.info("Login {}",auth.getEmail());
-//        log.warn("Login {}",auth.getEmail());
-//        log.error("Login {}",auth.getEmail());
         ProfileDTO autht = authService.auth(auth,language);
         return ResponseEntity.ok(autht);
     }
 
-//    @PutMapping("/verification/email/{jwt}")
-//    public ResponseEntity<String> emailVerification(@PathVariable String jwt) {
-//        String s = profileService.emailVerification(jwt,AppLanguage.eng);
-//        return ResponseEntity.ok(s);
-//    }
+
+    @PostMapping("/companylogin")
+    public ResponseEntity<CompanyDTO> companyLogin(@RequestHeader(value = "Accept-Language",
+            defaultValue = "uz") AppLanguage language, @RequestBody AuthDTO auth){
+        log.trace("Login In Trace");
+        log.debug("Login In Debug");
+        CompanyDTO autht = authService.authCompany(auth,language);
+        return ResponseEntity.ok(autht);
+    }
 }

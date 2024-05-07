@@ -17,14 +17,14 @@ import java.util.UUID;
 @Setter
 public class CustomUserDetails implements UserDetails {
     private Integer id;
-    private String email;
+    private String username;
     private String password;
     private ProfileStatus status;
     private ProfileRole role;
 
     public CustomUserDetails(Integer id, String phone, String password, ProfileStatus status, ProfileRole role) {
         this.id = id;
-        this.email = email;
+        this.username = username;
         this.password = password;
         this.status = status;
         this.role = role;
@@ -46,7 +46,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return email;
+        return username;
     }
 
     @Override
@@ -71,5 +71,6 @@ public class CustomUserDetails implements UserDetails {
 
     public Integer getId() {
         return id;
+
     }
 }

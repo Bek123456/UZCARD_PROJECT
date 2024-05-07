@@ -1,0 +1,44 @@
+
+POST http://localhost:8080/company/create1
+Content-Type: application/json
+
+{
+  "name": "ecma1",
+  "address": "chorsu1",
+  "contact": "11111",
+  "visible": true,
+  "role": "PAYMENT",
+  "code": "111111",
+  "username": "AAAA1",
+  "password": "11111"
+}
+
+
+###
+# @no-cookie-jar
+POST http://localhost:8080/company/created
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTUwODkzMDAsInVzZXJuYW1lIjoib3pvZCIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzE1MTc1NzAwLCJpc3MiOiJVekNhcmQifQ.riRBxJ0POX9aq-x3hmrU_F9YRs2Eh3ERJZmQUTlNOgryPkulQ7fof2JukuixANB72nY4_eIAngYuFfAwRAx_Ag
+
+{
+  "name": "pdp2",
+  "address": "2",
+  "contact": "2",
+  "visible": true,
+  "role": "BANK",
+  "code": "122341",
+  "username": "122331",
+  "password": "122331"
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -47,7 +47,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
         JwtDTO jwtDto;
         try {
             jwtDto = JWTUtil.decodeForSpringSecurity(token);
-            UserDetails userDetails = userDetailsService.loadUserByUsername(jwtDto.getEmail());
+            UserDetails userDetails = userDetailsService.loadUserByUsername(jwtDto.getUsername());
 
             UsernamePasswordAuthenticationToken
                     authentication = new UsernamePasswordAuthenticationToken(userDetails,
